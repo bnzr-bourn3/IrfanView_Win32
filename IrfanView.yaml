@@ -1,3 +1,11 @@
+
+## 📁 Folder Structure
+
+IrfanView_Win32/
+├─ install.ps1
+├─ uninstall.ps1
+├─ iview473g_x64_setup.exe
+└─ iview473_plugins_x64_setup.exe
 All files must be located **directly inside** the source folder (no subfolders).
 
 ---
