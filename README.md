@@ -24,10 +24,10 @@ It is designed for **SYSTEM-context**, **Company Portal**, and **enterprise envi
 
 ---
 
-## 📁 Folder Structure
+📄 License
 
-IrfanView_Win32/
-├─ install.ps1
-├─ uninstall.ps1
-├─ iview473g_x64_setup.exe
-└─ iview473_plugins_x64_setup.exe
+IrfanView is freeware for non-commercial use.
+Commercial use requires a license.
+
+For details, see:
+https://www.irfanview.com
