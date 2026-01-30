@@ -1,0 +1,25 @@
+All files must be located **directly inside** the source folder (no subfolders).
+
+---
+
+## 🚀 Features
+
+- Silent installation for **all users**
+- Offline deployment (EXEs bundled in `.intunewin`)
+- Plugin installation included
+- Start Menu shortcut (All Users)
+- Desktop shortcut (Public Desktop)
+- Robust registry-based detection
+- Clean uninstall using official uninstaller
+- Full install & uninstall logging
+
+---
+
+## 🛠️ Packaging (.intunewin)
+
+### Tool
+Microsoft **Win32 Content Prep Tool** (`IntuneWinAppUtil.exe`)
+
+### Command
+```powershell
+IntuneWinAppUtil.exe -c IrfanView_Win32 -s install.ps1 -o IntuneOutput
