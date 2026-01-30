@@ -23,3 +23,106 @@ Microsoft **Win32 Content Prep Tool** (`IntuneWinAppUtil.exe`)
 ### Command
 ```powershell
 IntuneWinAppUtil.exe -c IrfanView_Win32 -s install.ps1 -o IntuneOutput
+
+When prompted for catalog folder, leave empty.
+
+Output
+install.intunewin
+
+⚙️ Intune App Configuration
+Install Command
+powershell.exe -ExecutionPolicy Bypass -File .\install.ps1
+
+Uninstall Command
+powershell.exe -ExecutionPolicy Bypass -File .\uninstall.ps1
+
+Install Behavior
+
+System
+
+Restart Behavior
+
+No specific action
+
+🔍 Detection Rule (Recommended)
+
+Type: Registry
+
+Setting	Value
+Key path	HKLM\Software\DIPF\Apps
+Value name	IrfanView
+Detection method	String comparison
+Operator	Equals
+Value	Installed
+
+This avoids failures due to varying install paths.
+
+🧠 Installation Logic
+install.ps1 performs:
+
+Silent installation of IrfanView (64-bit)
+
+Silent installation of IrfanView Plugins
+
+Creation of shortcuts:
+
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\IrfanView.lnk
+
+C:\Users\Public\Desktop\IrfanView.lnk
+
+Writes registry detection marker
+
+Logs execution
+
+Install Log
+C:\ProgramData\IrfanView\install.log
+
+🗑️ Uninstall Logic
+
+Uses official uninstaller:
+
+C:\Program Files\IrfanView\iv_uninstall.exe /silent
+
+
+Removes:
+
+Start Menu shortcut
+
+Desktop shortcut
+
+Registry detection marker
+
+Logs execution
+
+Uninstall Log
+C:\ProgramData\IrfanView\uninstall.log
+
+🧪 Testing
+
+Validated via:
+
+Company Portal (Required + Available)
+
+Local execution
+
+Intune SYSTEM context
+
+Verified:
+
+Application appears in Settings → Installed apps
+
+Start Menu & Desktop shortcuts present
+
+Detection rule triggers correctly
+
+Uninstall works from Intune
+
+⚠️ Important Notes
+
+IrfanView silent installer does not create shortcuts by default.
+Shortcuts are therefore created manually via PowerShell.
+
+Taskbar pinning is intentionally not enforced (per Microsoft best practices).
+
+Bundled EXE approach avoids proxy, TLS inspection, and Store restrictions.
+
